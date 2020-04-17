@@ -1,0 +1,14 @@
+language: go
+sudo: false
+go:
+  - 1.8.x
+  - tip
+
+before_install:
+  - go get -t -v ./...
+
+script:
+  - ./go.test.sh
+
+after_success:
+  - bash <(curl -s https://codecov.io/bash) -t c8052eb0-fd5f-4e31-9bfe-fc262cfb5c59
